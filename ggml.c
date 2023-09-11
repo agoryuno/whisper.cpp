@@ -4713,7 +4713,8 @@ static struct ggml_object * ggml_new_object(struct ggml_context * ctx, enum ggml
     char * const mem_buffer = ctx->mem_buffer;
     struct ggml_object * const obj_new = (struct ggml_object *)(mem_buffer + cur_end);
 
-    //printf("current memory required = %zu\n", cur_end+size_needed+GGML_OBJECT_SIZE);
+    printf("current memory required = %zu, buf size = %zu \n", 
+            cur_end+size_needed+GGML_OBJECT_SIZE, ctx->mem_size );
 
     if (cur_end + size_needed + GGML_OBJECT_SIZE > ctx->mem_size) {
         GGML_PRINT("%s: not enough space in the context's memory pool (needed %zu, available %zu)\n",
