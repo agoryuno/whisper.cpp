@@ -2795,7 +2795,7 @@ struct whisper_state * whisper_init_state(whisper_context * ctx) {
     state->decoders[0].logits.reserve(ctx->vocab.n_vocab);
     state->decoders[0].logprobs.reserve(ctx->vocab.n_vocab);
     state->buf_compute.resize(scale * std::max(MEM_REQ_ENCODE.at(ctx->model.type), MEM_REQ_DECODE.at(ctx->model.type)));
-
+    printf("buffer size = %ld\n", scale * std::max(MEM_REQ_ENCODE.at(ctx->model.type), MEM_REQ_DECODE.at(ctx->model.type)) );
     state->buf_scratch[0].resize(MEM_REQ_SCRATCH0.at(ctx->model.type));
     state->buf_scratch[1].resize(MEM_REQ_SCRATCH1.at(ctx->model.type));
     state->buf_scratch[2].resize(MEM_REQ_SCRATCH2.at(ctx->model.type));
